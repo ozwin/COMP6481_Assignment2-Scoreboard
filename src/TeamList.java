@@ -78,10 +78,12 @@ public class TeamList  {
 	public String toString() {
 		TeamNode currentNode = this.head;
 		String output="";
+		int index=1;
 		while (currentNode != null) {
 			Team tmpteam=currentNode.getTeam();
-			output+="\n|Name:"+tmpteam.getTeamName()+" Id:"+tmpteam.getTeamID()+"|\n";
+			output+="\n|Node Index:"+index+" Name:"+tmpteam.getTeamName()+" Id:"+tmpteam.getTeamID()+"|\n";
 			currentNode = currentNode.nextNode;		
+			index++;
 		}
 		String outputFinal="Current List Items are : ";
 		outputFinal+=output.length()>0?output:"||";
@@ -222,7 +224,7 @@ public class TeamList  {
 			return false;
 		return true;
 	}
-
+	
 	/**
 	*Check if 2 team lists are equals , equality is compared on the basis of same size and same teams with any order in two list
 	*

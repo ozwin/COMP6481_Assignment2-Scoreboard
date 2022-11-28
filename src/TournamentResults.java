@@ -17,6 +17,13 @@ public class TournamentResults {
 
 		// TODO Auto-generated method stub
 		try {
+			System.out.println("Assignment 2 by Ozwin");
+
+			System.out.println("***************************************************");
+
+			System.out.println("By default test cases are taken from the PDF, you can append the new test cases to the existing team by specifying the number of teams");
+			System.out.println("***************************************************");
+
 			TeamList firstList = new TeamList();
 			Team d1	= new Team("Id1", "ENGLAND", 5, 4, 1, 2.464, 8);
 			d1.setGroup("A");
@@ -74,8 +81,17 @@ public class TournamentResults {
 				System.out.println(String.format("Please rnter details of Team: %d", i + 1));
 				System.out.println("Team group	  :");
 				String group = scanner.nextLine();
-				System.out.println("Team ID		  :");
-				String teamID = scanner.nextLine();
+				String teamID="";
+				boolean isValid=true;
+				while(isValid) {
+					System.out.println("Team ID		  :");
+					teamID= scanner.nextLine();
+					if(firstList.contains(teamID)) {
+						System.out.println("Sorry that Id is taken, please enter a new ID");
+					}else {
+						isValid=false;
+					}
+				}
 				System.out.println("Team name	  :");
 				String teamName = scanner.nextLine();
 				System.out.println("Total matched :");
@@ -112,6 +128,8 @@ public class TournamentResults {
 				String output = firstList.checkIfQualifies(reuqests.get(i));
 				System.out.println(output);
 			}
+			System.out.println("***************************************************");
+
 			System.out.println("Search functionality, enter the number of teamIds you wish to search");
 			int searchCounts = Integer.parseInt(scanner.nextLine());
 			for (int i = 0; i < searchCounts; i++) {
@@ -178,11 +196,11 @@ public class TournamentResults {
 			System.out.println("Lets' test some list functionalities , rename team names to their respective object names");
 			System.out.println("Lets' add t2 and t3 to the list called demoList using insertAtStart functionality");
 			TeamList demoList = new TeamList();
-			demoList.addToStart(t2);
 			demoList.addToStart(t3);
+			demoList.addToStart(t2);
 			System.out.println(demoList);
 			System.out.println("Lets' add t1 at index 1 using insertAtIndex functionaity (1-2)");
-			demoList.insertAtIndex(t1, 2);
+			demoList.insertAtIndex(t1, 1);
 			System.out.println(demoList);
 			System.out.println("Lets' delete t3 from 3rd index using deleteFromIndex functionaity (1-3)");
 			demoList.deleteFromIndex(3);
