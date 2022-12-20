@@ -148,7 +148,7 @@ public class TeamList  {
 		} else {
 			int iterator = 1;
 			TeamNode currentNode = null, prevNode = head;
-			while (iterator == index-1 && prevNode != null) {
+			while (iterator <= index-2 && prevNode != null) {
 				prevNode = prevNode.nextNode;
 				iterator++;
 			}
